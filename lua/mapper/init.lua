@@ -1,6 +1,9 @@
 ---@class Mapper
 local M = {}
 
+--- The configuration as set by the user through the `setup()` function
+M.config = require "mapper.config"
+
 --- A placeholder variable used to queue section names to be registered by which-key
 ---@type table?
 M.which_key_queue = nil
