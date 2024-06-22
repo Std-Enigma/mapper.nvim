@@ -118,7 +118,7 @@ mapper.set_mappings(mappings)
 
 ## ⭐ Credits
 
-This plugin is direct implementation of [AstroNvim](https://github.com/AstroNvim/AstroNvim) core utilities for setting up key mappings.
+This plugin is a direct implementation of [AstroNvim](https://github.com/AstroNvim/AstroNvim) core utilities for setting up key mappings.
 
 <div align="center" id="madewithlua">
 
