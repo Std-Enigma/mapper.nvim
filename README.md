@@ -15,7 +15,7 @@ Install the plugin with your preferred package manager:
 ```lua
 {
   "Std-Enigma/mapper.nvim",
-  opts = {}, -- for setting up your mappings, refer to the usage section.
+  opts = function(_, opts) opts.mappings = require("mapper").empty_map_table() end, -- for setting up your mappings, refer to the usage section.
 }
 ```
 
@@ -68,9 +68,6 @@ Install the plugin with your preferred package manager:
     {
       "Std-Enigma/mapper.nvim",
       opts = function(_, opts)
-        -- remember this line will cause an error if mappings table isn't a table with entries for each map mode
-        -- in that case you have to manually initialize the mappings table
-        -- by including opts.mappings = require("mapper").empty_map_table()
         local maps = opts.mappings
         maps.n["<C-H>"] = { function() require("smart-splits").move_cursor_left() end, desc = "Move to left split" }
         maps.n["<C-J>"] = { function() require("smart-splits").move_cursor_down() end, desc = "Move to below split" }
