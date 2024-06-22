@@ -11,7 +11,7 @@ M.which_key_queue = nil
 --- Execute a function when a specified plugin is loaded with Lazy.nvim, or immediately if already loaded
 ---@param plugins string|string[] the name of the plugin or a list of plugins to defer the function execution on. If a list is provided, only one needs to be loaded to execute the provided function
 ---@param load_op fun()|string|string[] the function to execute when the plugin is loaded, a plugin name to load, or a list of plugin names to load
-function M.on_load(plugins, load_op)
+local function on_load(plugins, load_op)
 	local lazy_config_avail, lazy_config = pcall(require, "lazy.core.config")
 	if lazy_config_avail then
 		if type(plugins) == "string" then
@@ -109,7 +109,7 @@ function M.set_mappings(map_table, base)
 		end
 	end
 	if was_no_which_key_queue and M.which_key_queue then
-		M.on_load("which-key.nvim", M.which_key_register)
+		on_load("which-key.nvim", M.which_key_register)
 	end
 end
 
