@@ -6,6 +6,10 @@ An alternative solution to setup your neovim key mappings.
 
 - Neovim >= 0.5.0
 
+## ⚠️ Caution
+
+<b>which-key.nvim registration isn't possible if you are using any package manager rather than lazy.nvim</b>
+
 ## 📦 Installation
 
 Install the plugin with your preferred package manager:
