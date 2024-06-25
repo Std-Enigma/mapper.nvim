@@ -71,8 +71,8 @@ Install the plugin with your preferred package manager:
   dependencies = {
     {
       "Std-Enigma/mapper.nvim",
-      opts = function(_, opts)
-        local maps = opts.mappings
+      opts = function(_, _)
+        local maps = require("mapper").empty_map_table()
         maps.n["<C-H>"] = { function() require("smart-splits").move_cursor_left() end, desc = "Move to left split" }
         maps.n["<C-J>"] = { function() require("smart-splits").move_cursor_down() end, desc = "Move to below split" }
         maps.n["<C-K>"] = { function() require("smart-splits").move_cursor_up() end, desc = "Move to above split" }
@@ -81,6 +81,7 @@ Install the plugin with your preferred package manager:
         maps.n["<C-Down>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" }
         maps.n["<C-Left>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" }
         maps.n["<C-Right>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" }
+				return { mappings = maps } -- we do this so lazy.nvim can merge your mappings table
       end,
     },
   },
