@@ -117,6 +117,7 @@ end
 ---@param opts MapperOpts
 ---@see mapper.config
 function M.setup(opts)
+	M.config.mappings = M.empty_map_table()
 	M.config = vim.tbl_deep_extend("force", M.config, opts)
 
 	-- mappings
