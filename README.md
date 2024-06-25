@@ -19,7 +19,7 @@ Install the plugin with your preferred package manager:
 ```lua
 {
   "Std-Enigma/mapper.nvim",
-  opts = function(_, opts) opts.mappings = require("mapper").empty_map_table() end, -- for setting up your mappings, refer to the usage section.
+  opts = {}, -- for setting up your mappings, refer to the usage section.
 }
 ```
 
