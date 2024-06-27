@@ -74,8 +74,8 @@ function M.set_mappings(map_table, base)
 		end
 	end
 	if was_no_which_key_queue and M.which_key_queue then
-		local lazy_utils = require "lazy.utils"
-		lazy_utils.on_load("which-key.nvim", M.which_key_register)
+		local lazy_helper = require "lazy.helper"
+		lazy_helper.on_load("which-key.nvim", M.which_key_register)
 	end
 end
 
