@@ -8,7 +8,7 @@ An alternative solution to setup your neovim key mappings.
 
 ## ⚠️ Caution
 
-<b>which-key.nvim registration isn't possible if you are using any package manager rather than lazy.nvim</b>
+<b>which-key.nvim registration isn't possible if you are using any package manager rather than [lazy.nvim](https://github.com/folke/lazy.nvim)</b>
 
 ## 📦 Installation
 
