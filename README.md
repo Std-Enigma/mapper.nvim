@@ -19,7 +19,7 @@ Install the plugin with your preferred package manager:
 ```lua
 {
   "Std-Enigma/mapper.nvim",
-  dependencies = "Std-Enigma/lazy-utils.nvim", -- this is only needed if you want to register your mappings through which-key.nvim
+  dependencies = "Std-Enigma/lazy-helper.nvim", -- this is only needed if you want to register your mappings through which-key.nvim
   opts = {}, -- for setting up your mappings, refer to the usage section.
 }
 ```
