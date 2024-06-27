@@ -74,9 +74,8 @@ function M.set_mappings(map_table, base)
 		end
 	end
 	if was_no_which_key_queue and M.which_key_queue then
-		local lazy_avail = pcall(require, "lazy")
-		local helper_avail, lazy_helper = pcall(require, "lazy.helper")
-		if lazy_avail and helper_avail then lazy_helper.on_load("which-key.nvim", M.which_key_register) end
+		local lazy_avail, lazy_helper = pcall(require, "lazy.helper")
+		if lazy_avail then lazy_helper.on_load("which-key.nvim", M.which_key_register) end
 	end
 end
 
