@@ -86,6 +86,14 @@ function M.setup(opts)
 	M.config.mappings = M.empty_map_table()
 	M.config = vim.tbl_deep_extend("force", M.config, opts)
 
+	local lazy_config_avail, lazy_config = pcall(require, "lazy.core.config")
+	if lazy_config_avail then
+  	for _, plugin in pairs(lazy_config.plugins) do
+    	local plugin_mappings = lazy_config.spec.plugins[plugin.name].mappings or {}
+    	M.config.mappings = vim.tbl_deep_extend("force", M.config.mappings, plugin_mappings)
+  	end
+	end
+
 	-- mappings
 	M.set_mappings(M.config.mappings)
 end
