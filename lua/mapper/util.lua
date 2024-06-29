@@ -47,6 +47,8 @@ function M.lazy_mappings()
 	for _, plugin in pairs(lazy_config.plugins) do -- loop over plugins
 		local mappings = lazy_config.spec.plugins[plugin.name].mappings
 
+		-- Dear developer if you are seeing this poorly written implementation
+		-- I'm sorry I hurt your eyes :)
 		if mappings then
 			for _, mapping in pairs(mappings) do -- loop over plugin mappings
 				local modes = mapping.mode or { "n" }
