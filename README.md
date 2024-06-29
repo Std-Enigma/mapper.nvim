@@ -81,7 +81,7 @@ Install the plugin with your preferred package manager:
         maps.n["<C-Down>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" }
         maps.n["<C-Left>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" }
         maps.n["<C-Right>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" }
-				return { mappings = maps } -- we do this so lazy.nvim can merge your mappings table
+	return { mappings = maps } -- we do this so lazy.nvim can merge your mappings table
       end,
     },
   },
