@@ -35,4 +35,37 @@ function M.on_load(plugins, load_op)
 	end
 end
 
+---generate and return a mapping table from lazy.nvim config
+---if nil is returned then no mapping table have been found
+---@return table|nil generated map table
+function M.lazy_mappings()
+	local lazy_avail, lazy_config = pcall(require, "lazy.core.config")
+	if not lazy_avail then return nil end
+
+	local skip = { mode = true, lhs = true, rhs = true }
+	local map_table = require("mapper").empty_map_table()
+	for _, plugin in pairs(lazy_config.plugins) do -- loop over plugins
+		local mappings = lazy_config.spec.plugins[plugin.name].mappings
+
+		if mappings then
+			for _, mapping in pairs(mappings) do -- loop over plugin mappings
+				local modes = mapping.mode or { "n" }
+				modes = type(modes) == "string" and { modes } or modes
+				local lhs = mapping[1] or mapping.lhs
+				local rhs = mapping[2] or mapping.rhs
+				for _, mode in pairs(modes) do -- set key mappings for each mode
+					map_table[mode][lhs] = { rhs }
+  				for key, value in pairs(mapping) do
+    				if type(key) ~= "number" and not skip[key] then
+      				map_table[mode][lhs][key] = value
+    				end
+  				end
+				end
+			end
+		end
+	end
+
+	return map_table
+end
+
 return M
